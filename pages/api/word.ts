@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import fetch from "node-fetch";
 
-export default async (req: NextApiRequest, res: NextApiResponse<string>) => {
+export default (req: NextApiRequest, res: NextApiResponse<string>) => {
   if (req.method === "POST") {
     // const raw = await fetch("http://78.47.186.254/api/word", {
     //   method: "POST",
