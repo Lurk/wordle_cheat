@@ -6,7 +6,7 @@ export async function getWord(
   setWord: (word: ILetter[]) => void
 ) {
   try {
-    const raw = await fetch("http://78.47.186.254/api/word", {
+    const raw = await fetch("/api/word", {
       method: "POST",
       headers: {
         Accept: "application/json",
