@@ -4,7 +4,7 @@ import { Word } from "../components/word";
 import { NEXT_STATE } from "../helpers/const";
 import { set } from "../helpers/array";
 import { wordsReducer, defaultValues, ILetter } from "../helpers/word";
-import { getWord } from "../api/word";
+import { getWord } from "../api_helpers/word";
 
 import Head from "next/head";
 
