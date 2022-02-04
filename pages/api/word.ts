@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async (req: NextApiRequest, res: NextApiResponse<string>) => {
   const raw = await fetch("http://78.47.186.254/api/word", {
     method: "POST",
     headers: {
@@ -9,5 +9,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
     body: JSON.stringify(req.body),
   });
-  res.status(200).end(await raw.text());
+  res.status(200).send(await raw.text());
 };
