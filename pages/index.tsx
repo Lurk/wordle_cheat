@@ -56,7 +56,10 @@ const Home: NextPage = () => {
         <meta name="description" content="Wordle game cheat" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>This is <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a> game cheat</h1>
+      <h1>
+        This is <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>{" "}
+        game cheat
+      </h1>
       <button className="Reset" onClick={reset}>
         reset
       </button>
