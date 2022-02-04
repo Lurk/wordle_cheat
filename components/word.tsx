@@ -1,9 +1,10 @@
+import React from "react";
 import { Letter } from "./letter";
 import { ILetter } from "../helpers/word";
 
 interface WordProps {
   word: ILetter[];
-  updateWord: (letterIndex: number) => void;
+  updateWord: (letterIndex: number) => void; // eslint-disable-line
 }
 
 export const Word: React.FC<WordProps> = ({ word, updateWord }) => {
