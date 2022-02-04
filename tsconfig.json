@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/word.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/word.ts"],
   "exclude": ["node_modules"]
 }
