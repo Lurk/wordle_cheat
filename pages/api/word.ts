@@ -1,6 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<string| {error: string}>) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<string | { error: string }>
+) {
   try {
     const raw = await fetch("http://78.47.186.254/api/word", {
       method: "POST",
@@ -14,4 +17,4 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   } catch (err) {
     res.status(500).json({ error: "failed to load data" });
   }
-};
+}

@@ -1,4 +1,4 @@
-# This is Wordle cheat 
+# This is Wordle cheat
 
 you can play around here: https://wordle-cheat-nu.vercel.app/
 

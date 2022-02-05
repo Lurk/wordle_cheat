@@ -60,9 +60,7 @@ const Home: NextPage = () => {
         This is <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>{" "}
         game cheat
       </h1>
-      <button className="Reset" onClick={reset}>
-        reset
-      </button>
+
       {words.map((word, index) => (
         <Word
           word={word}
@@ -70,6 +68,10 @@ const Home: NextPage = () => {
           updateWord={updateLetter.bind(null, index)}
         />
       ))}
+      <button className="Reset" onClick={reset}>
+        reset
+      </button>
+      <p><a href="https://github.com/Lurk/wordle_cheat">fork me</a></p>
     </div>
   );
 };
