@@ -1,10 +1,12 @@
 import { STATE } from "../helpers/const";
-import { ILetter, Rules } from "../helpers/word";
+import { ILetter, Rules, wordsReducer, defaultValues } from "../helpers/word";
 
 export async function getWord(
-  rules: Rules,
+  words: ILetter[][],
   setWord: (word: ILetter[]) => void
 ) {
+  const rules = words.reduce(wordsReducer, defaultValues());
+  console.log({ rules, words });
   try {
     const raw = await fetch("/api/word", {
       method: "POST",

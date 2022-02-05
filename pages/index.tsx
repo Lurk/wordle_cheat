@@ -25,9 +25,8 @@ const Home: NextPage = () => {
 
   const update = useCallback(() => {
     setIsLoading(true);
-    const rules = words.reduce(wordsReducer, defaultValues());
-    getWord(rules, addWord);
-  }, [words, addWord]);
+    getWord(words.slice(0, currentWord + 1), addWord);
+  }, [words, addWord, currentWord]);
 
   const debouncedUpdate = useDebounce(update, 500);
 
