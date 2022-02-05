@@ -13,15 +13,18 @@ const Home: NextPage = () => {
   const [words, updateWords] = useState<ILetter[][]>([]);
   const [changed, setChanged] = useState(Date.now());
   const [currentWord, setCurrentWord] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   const addWord = useCallback(
     (word) => {
-      updateWords(set(words, currentWord + 1, word));
+      updateWords(set(words.slice(0, currentWord + 1), currentWord + 1, word));
+      setIsLoading(false);
     },
     [words, currentWord]
   );
 
   const update = useCallback(() => {
+    setIsLoading(true);
     const rules = words.reduce(wordsReducer, defaultValues());
     getWord(rules, addWord);
   }, [words, addWord]);
@@ -40,6 +43,7 @@ const Home: NextPage = () => {
 
   const updateLetter = useCallback(
     (wordIndex, letterIndex) => {
+      if (isLoading) return;
       setCurrentWord(wordIndex);
       updateWords(
         set(
@@ -53,7 +57,7 @@ const Home: NextPage = () => {
       );
       setChanged(Date.now());
     },
-    [words, setCurrentWord]
+    [words, setCurrentWord, isLoading]
   );
 
   return (
