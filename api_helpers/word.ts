@@ -15,7 +15,15 @@ export async function getWord(
       body: JSON.stringify(rules),
     });
     const res = await raw.text();
-    setWord(res.split("").map((letter) => ({ letter, state: STATE.DEFAULT })));
+    setWord(
+      res.split("").map((letter, index) => ({
+        letter,
+        state:
+          rules.positional_contains[index] === letter
+            ? STATE.HIT
+            : STATE.DEFAULT,
+      }))
+    );
   } catch (e) {
     console.error(e);
   }

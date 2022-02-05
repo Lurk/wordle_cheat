@@ -7,6 +7,7 @@ import { wordsReducer, defaultValues, ILetter } from "../helpers/word";
 import { getWord } from "../api_helpers/word";
 
 import Head from "next/head";
+import { useDebounce } from "../components/use_debounce";
 
 const Home: NextPage = () => {
   const [words, updateWords] = useState<ILetter[][]>([]);
@@ -20,10 +21,16 @@ const Home: NextPage = () => {
     [words, currentWord]
   );
 
-  useEffect(() => {
+  const update = useCallback(() => {
     const rules = words.reduce(wordsReducer, defaultValues());
     getWord(rules, addWord);
-  }, [changed]);
+  }, [words, addWord]);
+
+  const debouncedUpdate = useDebounce(update, 500);
+
+  useEffect(update, []);
+
+  useEffect(debouncedUpdate, [changed]);
 
   const reset = useCallback(() => {
     updateWords([]);
@@ -71,7 +78,9 @@ const Home: NextPage = () => {
       <button className="Reset" onClick={reset}>
         reset
       </button>
-      <p><a href="https://github.com/Lurk/wordle_cheat">fork me</a></p>
+      <p>
+        <a href="https://github.com/Lurk/wordle_cheat">fork me</a>
+      </p>
     </div>
   );
 };
