@@ -65,7 +65,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Wordle game cheat</title>
         <meta name="description" content="Wordle game cheat" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico?v1" />
       </Head>
       <h1>
         This is <a href="https://www.powerlanguage.co.uk/wordle/">Wordle</a>{" "}
