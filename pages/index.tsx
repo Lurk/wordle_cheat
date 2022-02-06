@@ -1,13 +1,15 @@
 import type { NextPage } from "next";
 import { useCallback, useEffect, useState } from "react";
 import { Word } from "../components/word";
-import { NEXT_STATE } from "../helpers/const";
+import { STATE, NEXT_STATE } from "../helpers/const";
 import { set } from "../helpers/array";
 import { wordsReducer, defaultValues, ILetter } from "../helpers/word";
 import { getWord } from "../api_helpers/word";
 
 import Head from "next/head";
 import { useDebounce } from "../components/use_debounce";
+import { Letter } from "../components/letter";
+import { Help } from "../components/help";
 
 const Home: NextPage = () => {
   const [words, updateWords] = useState<ILetter[][]>([]);
@@ -81,6 +83,9 @@ const Home: NextPage = () => {
       <button className="Reset" onClick={reset}>
         reset
       </button>
+
+      <Help />
+
       <p>
         <a href="https://github.com/Lurk/wordle_cheat">fork me</a>
       </p>

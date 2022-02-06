@@ -15,6 +15,7 @@ body {
   width: 58px;
   height: 58px;
   border: 2px solid #3a3a3c;
+  background-color: #121213;
   box-sizing: border-box;
   margin: 2px;
   cursor: pointer;
@@ -29,13 +30,16 @@ body {
 }
 .Letter.hit {
   background-color: #538d4e;
+  border: 2px solid #538d4e;
 }
 .Letter.miss {
-  background-color: #f5793a;
+  background-color: #3a3a3c;
+  border: 2px solid #3a3a3c;
 }
 
 .Letter.hit_but_not_really {
   background-color: #b59f3b;
+  border: 2px solid #b59f3b;
 }
 
 .Reset {
@@ -62,4 +66,14 @@ h1 {
 a {
   color: #818384;
   text-decoration: none;
+}
+
+.Legend {
+  text-align: left;
+  width: 400px;
+}
+
+.Help {
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
