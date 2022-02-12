@@ -5,7 +5,7 @@ import { Rules } from "./word";
 let connected = false;
 let lastQuery: false | Rules = false;
 const resolvers: Map<string, (w: string) => void> = new Map();
-const ws = new WebSocket("ws://127.0.0.1:8080/api/ws");
+const ws = new WebSocket("ws://78.47.186.254/api/ws");
 
 interface Message {
   id: string;
@@ -53,7 +53,7 @@ ws.addEventListener("message", ({ data }) => {
     if (resolver) {
       resolver(message.word);
       resolvers.delete(message.id);
-    } 
+    }
   }
 });
 
