@@ -6,6 +6,7 @@ export async function getWord(
   setWord: (word: ILetter[]) => void
 ) {
   const rules = words.reduce(wordsReducer, defaultValues());
+  rules.positional_not_contains = rules.positional_not_contains.filter((v)=>v);
   console.log({ rules, words });
   try {
     const raw = await fetch("/api/word", {
