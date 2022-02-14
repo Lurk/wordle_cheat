@@ -19,7 +19,7 @@ export async function getWord(
     });
     const res = await raw.json();
     res.times.push({step: "got response from vercel", time: Date.now()});
-    console.table(res.times);
+    timesHelper(res.times);
     setWord(
       res.word.split("").map((letter:string, index:number) => ({
         letter,
@@ -32,4 +32,17 @@ export async function getWord(
   } catch (e) {
     console.error(e);
   }
+}
+
+interface T {
+  step: string,
+  time: number,
+  diff: number
+}
+
+function timesHelper(times: Array<{step: string, time: number}>){
+  console.table(times.reduce((acc: T[], val, i)=>{
+    acc.push({...val, diff: i > 0 ? val.time - acc[i-1].time : 0})
+    return acc;
+  }, []));
 }
