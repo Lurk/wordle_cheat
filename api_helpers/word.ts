@@ -15,11 +15,13 @@ export async function getWord(
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(rules),
+      body: JSON.stringify({rules, times: [{step: "sending request", time: Date.now()}]}),
     });
-    const res = await raw.text();
+    const res = await raw.json();
+    res.times.push({step: "got response from vercel", time: Date.now()});
+    console.table(res.times);
     setWord(
-      res.split("").map((letter, index) => ({
+      res.word.split("").map((letter:string, index:number) => ({
         letter,
         state:
           rules.positional_contains[index] === letter
