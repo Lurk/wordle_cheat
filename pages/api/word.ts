@@ -6,7 +6,7 @@ export default async function handler(
 ) {
   try {
     req.body.times.push({step: "got request at vercel", time: Date.now()});
-    const raw = await fetch("http://127.0.0.1:8080/api/word", {
+    const raw = await fetch("https://78.47.186.254/api/word", {
       method: "POST",
       headers: {
         Accept: "application/json",
