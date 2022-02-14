@@ -1,5 +1,6 @@
 import { STATE } from "../helpers/const";
 import { ILetter, Rules, wordsReducer, defaultValues } from "../helpers/word";
+import { send } from "../helpers/ws";
 
 export async function getWord(
   words: ILetter[][],
@@ -32,6 +33,7 @@ export async function getWord(
   } catch (e) {
     console.error(e);
   }
+  send(rules);
 }
 
 interface T {
