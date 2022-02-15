@@ -33,7 +33,6 @@ export async function getWord(
   } catch (e) {
     console.error(e);
   }
-  send(rules);
 }
 
 interface T {
